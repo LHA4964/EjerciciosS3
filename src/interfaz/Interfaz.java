@@ -18,7 +18,7 @@ public class Interfaz {
         String instruccion = sc.nextLine();
         return instruccion.split(",");
     }
-    public void menu(){
+    public void menu(){ //menu
         help();
         boolean continuar = true;
         while(continuar == true){
@@ -50,9 +50,9 @@ public class Interfaz {
                     break;
                 case "5":
                     n = instr.length;
-                    int [] comandos1 = new int[n];
+                    int [] comandos1 = new int[n-1];
                     for (int i = 1; i < n; i++) {
-                        comandos1[i] = Integer.parseInt(instr[i]);
+                        comandos1[i-1] = Integer.parseInt(instr[i]);
                     }
                     System.out.println(Matematicas.mediaLista(comandos1));
                     break;
@@ -66,10 +66,7 @@ public class Interfaz {
                     for (int i = 1; i < n; i++) {
                         comandos3[i] = Integer.parseInt(instr[i]);
                     }
-                    List<Integer> listaComandos = Arrays.stream(comandos3)
-                            .boxed()
-                            .collect(Collectors.toList());
-                    System.out.println(Matematicas.sumaParesLista(listaComandos));
+                    System.out.println(Matematicas.sumaParesLista(comandos3));
                     break;
                 case "0":
                     System.out.println("Saliendo");
